@@ -1,0 +1,226 @@
+<div class='principal'>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a [routerLink]="['/../cadastro-vagas']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Cadastro de Vagas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../vagas']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Vagas 
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../cadastro-candidato']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+        Cadastro Candidatos
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../candidato']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Candidatos
+      </a>
+    </li>
+</ul>
+<!-- ------------------------------------------------------------------------------------ -->
+  <form [formGroup]='form'>
+    <div class='container'>  
+        <div id="qualitor">
+          <Label class="font-weight-bold">Nr Qualitor</Label>
+          <input 
+          formControlName='qualitor' 
+          [(ngModel)]="vagas.qualitor" 
+          maxlength="5"
+          type='text' 
+          class='form-control' />
+        </div>
+          <div id="cargo" >
+            <label class="font-weight-bold">Cargo</label>
+            <select 
+            id='select-cargo'
+            formControlName='cargo' 
+            class='form-control' 
+            [(ngModel)]="vagas.cargo">
+            <option [ngValue]="item"
+            id="{{item.id}}"
+            class='form-control' 
+            [selected]=" vagas.cargo && vagas.cargo.id==item.id"
+                *ngFor='let item of this.listaCargo'>{{item.descricao}}</option>
+            </select>
+          </div>
+          <div id="especialidade">
+            <label class="font-weight-bold">Especialidade</label>
+            <select 
+            id='select-especialidade'
+            formControlName='especialidade' 
+            class='form-control' 
+            [(ngModel)]="vagas.especialidade">
+            <option [ngValue]="item"
+            id="{{item.id}}"
+            class='form-control' 
+            [selected]=" vagas.especialidade && vagas.especialidade.id==item.id"
+                *ngFor='let item of this.listaEspecialidade'>{{item.descricao}}</option>
+            </select>
+          </div>
+          <div >
+            <Label class="font-weight-bold">Budget Base</Label>
+            <input id="remuneracao"
+              formControlName='remuneracao'
+              [(ngModel)]="vagas.remuneracao"
+              maxlength="10"
+              type='remuneracao' 
+              class='form-control'
+               />
+          </div>
+          <div >
+            <Label class="font-weight-bold">Vale Alimentação</Label>
+            <input id="va"
+              formControlName='va'
+              [(ngModel)]='vagas.vale_alimentacao' 
+              type='va' 
+              maxlength="10"
+              class='form-control'
+               />
+          </div>
+          <div>
+            <Label class="font-weight-bold">Vale Refeição</Label>
+            <input  id="vr"
+              formControlName='vr'
+              [(ngModel)]='vagas.vale_refeicao' 
+              type='vr' 
+              maxlength="8"
+              class='form-control'
+               />
+          </div>
+          <div >
+            <Label class="font-weight-bold">Bônus</Label>
+            <input id="bonus"
+              formControlName='bonus'
+              [(ngModel)]='vagas.bonus' 
+              type='bonus' 
+              maxlength="10"
+              class='form-control'
+               />
+          </div>
+          <div >
+            <Label class="font-weight-bold">Flash</Label>
+            <input id="flash"
+              formControlName='flash'
+              [(ngModel)]='vagas.flash' 
+              type='flash'
+              maxlength="10" 
+              class='form-control'
+               />
+          </div>
+          <div>
+            <Label class="font-weight-bold">Cesta</Label>
+            <input  id="cesta"
+              formControlName='cesta'
+              [(ngModel)]='vagas.cesta' 
+              type='cesta' 
+              maxlength="10"
+              class='form-control'
+               />
+          </div>
+          <div id="planoSaude">
+            <label class="font-weight-bold">Plano de Saúde</label>
+            <select 
+            id='select-plano'
+            formControlName='planoSaude' 
+            class='form-control' 
+            [(ngModel)]="vagas.planoSaude">
+            <option [ngValue]="item"
+            id="{{item.id}}"
+            class='form-control' 
+            [selected]=" vagas.planoSaude && vagas.planoSaude .id==item.id"
+                *ngFor='let item of this.listaPlano '>{{item.descricao}}</option>
+            </select>
+          </div>
+          <div id='bu'>
+            <label class="font-weight-bold">Área Negócio</label>
+            <select 
+            id='select-bu'
+            formControlName='bu' 
+            class='form-control' 
+            [(ngModel)]="vagas.bu">
+            <option [ngValue]="item"
+              id="{{item.id}}"
+             class='form-control' 
+             [selected]=" vagas.bu && vagas.bu.id==item.id"
+                *ngFor='let item of this.listaBu'>{{item.descricao}}</option>
+            </select>
+        </div>
+        <div id='operacao'>
+          <label class="font-weight-bold">Operacão</label>
+          <select 
+          formControlName='operacao' 
+          class='form-control' 
+          [(ngModel)]="vagas.contrato">
+          <option [ngValue]="item"
+           class='form-control' 
+           [selected]=" vagas.contrato && vagas.contrato.id==item.id"
+              *ngFor='let item of this.listaOperacao'>{{item.operacao}}</option>
+          </select>
+        </div>
+        <div id="etapa" *ngIf="mostrarEtapa">
+          <label class="font-weight-bold">Etapa</label>
+            <select 
+            id='select-etapa'
+            formControlName='etapa' 
+            class='form-control' 
+            [(ngModel)]="vagas.etapa">
+            <option [ngValue]="item"
+              id="{{item.id}}"
+              type='text'
+              [selected]=" vagas.etapa && vagas.etapa.id==item.id"
+              *ngFor='let item of this.listaEtapa'>{{item.descricao}} </option>
+            </select>
+        </div> 
+        <div id="recrutador">
+          <label class="font-weight-bold">Recrutador</label>
+            <select 
+            id='select-recrutador'
+            formControlName='recrutador' 
+            class='form-control' 
+            [(ngModel)]="vagas.recrutador">
+            <option [ngValue]="item"
+              id="{{item.id}}"
+              type='text'
+              [selected]=" vagas.recrutador && vagas.recrutador.id==item.id"
+              *ngFor='let item of this.listaRecrutador'>{{item.descricao}} </option>
+            </select>
+        </div>
+            <section>
+              <div class="example-button-row">
+                <button mat-icon-button  *ngIf="mostrarInserir"
+                  (click)='submit()' 
+                  id="refresh"
+                  class="button1"
+                  color="white">
+                  <mat-icon>check_circle</mat-icon>
+                  INSERIR
+                </button>
+                <button  mat-raised-button *ngIf="mostrarAtualizar"
+                (click)='volta()' 
+                class="button3"
+                color="white"
+                printTitle="voltar">
+                <mat-icon>keyboard_backspace</mat-icon>
+                Voltar</button>
+
+                <button  mat-raised-button   *ngIf="mostrarAtualizar"
+                (click)='submit()' 
+                class="button2"
+                color="white"
+                printTitle="atualizar">
+                <mat-icon>check_circle</mat-icon>
+                Atualizar</button>
+
+              </div>
+            </section>
+      </div>
+  </form>
+</div>

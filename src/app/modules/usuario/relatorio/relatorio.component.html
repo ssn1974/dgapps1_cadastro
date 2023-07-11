@@ -1,0 +1,103 @@
+<div class='principal'>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a [routerLink]="['/../usuarios']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Lista de Usuários
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../novo-usuario']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+          Cadastro
+      </a>
+    <li class="nav-item">
+      <a [routerLink]="['/../funcao']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Função
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../contrato']" class="nav-link active">
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
+            Contrato
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../relatorio']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Relatório
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../maquinas']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Maquinas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../detalhesMaquinas']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Lista de Maquinas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../perfil']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Perfil
+      </a>
+    </li>
+</ul>
+<div class='container-fluid'>
+  <form [formGroup]='form'>
+    <div id="contrato" >
+      <label class="font-weight-bold">Operação</label>
+      <select 
+      formControlName='contrato' 
+      class='form-control' 
+      (blur)="listaUsuariosPorOperacao($event)"
+      [(ngModel)]=" usuario.contrato">
+      <option [value]="item.id"  
+      class='form-control' 
+      [selected]=" usuario.contrato && usuario.contrato.id==item.id"
+      *ngFor='let item of this.listaContrato'>{{item.operacao}}</option>
+      </select>
+    </div>
+  </form>
+</div>
+  <div *ngIf="mostrarGerarPDF">
+    <button mat-icon-button 
+      class="buton1"
+      printTitle="Relatório"  
+      (click)=' PrintSimplesPDF()'>
+      <mat-icon>print</mat-icon>
+      Gerar PDF</button> 
+  </div>
+  <div class='container-fluid' id="teste">
+    <div id="divTitulo" style="display: none;">
+      <img src="assets/control_2.jpg" id="imgTitulo">
+      <span style="padding-left: 800px;">Operações-DG</span>
+    </div>
+  <div id="divDemandaOperacao" style="width: 100%;" class="divDemandaOperacao">
+  </div>
+    <div *ngIf='this.usuarios.length > 0; else semUsuarios' class='custom-size '>
+      <table  mat-table [dataSource]="usuarios" matSort id='tbUsuario'> 
+          <ng-container matColumnDef="codigoRe">
+            <th mat-header-cell *matHeaderCellDef>MATRICULA</th>
+            <td mat-cell *matCellDef="let element"> {{element.codigoRe}} </td>
+          </ng-container>
+          <ng-container matColumnDef="nome">
+            <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by nome">NOME</th>
+            <td mat-cell *matCellDef="let element"> {{element.nome.toUpperCase()}} </td>
+          </ng-container>
+          <ng-container matColumnDef="cargo">
+            <th mat-header-cell *matHeaderCellDef> CARGO</th>
+            <td mat-cell *matCellDef="let element"> {{element.cargo.descricao}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="colunas; sticky: true"></tr>
+          <tr class='custom-row' mat-row *matRowDef="let row; columns: colunas;"></tr>
+      </table>
+      <b style="display: none;" id="totalUsuario">Qtd:{{usuarios.length}}</b>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+*{
+    margin: 8;
+  }
+  
+  .custom-size{
+    height: 26rem;
+    overflow: auto;
+    margin-top: 2rem;
+    border: 1px solid black;
+  }
+  
+  .form-control{
+    border: 1px solid black;
+    margin-right: 57rem;
+  
+  }
+
+  
+  .input-group-append{
+    border: 1px solid black;
+  }
+  
+  table{
+    width: 100%;
+  }
+  
+  .custom-row{
+    cursor: pointer;
+  }
+  
+  tr.mat-header-row{
+    background-color: rgb(16, 15, 16);
+  }
+  
+  th.mat-header-cell{
+    color: white;
+    font-size: 0.8rem;
+  }
+  
+  

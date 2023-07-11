@@ -1,0 +1,31 @@
+.custom-padding{
+    margin-bottom: 1rem;
+}
+
+a{
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+div{
+    padding: 0;
+}
+
+li{
+    padding: 0.5rem;
+}
+
+
+.logo-qintess{
+    height: 2.5rem;
+    pointer-events: none;  
+    filter: invert(80%);
+}
+
+.custom-nav{
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    padding-left: 1rem;
+    min-height: 10vh;
+}
+
+

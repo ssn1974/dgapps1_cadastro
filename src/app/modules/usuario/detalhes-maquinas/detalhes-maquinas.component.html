@@ -1,0 +1,123 @@
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a [routerLink]="['/../usuarios']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Lista de Usuários
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../novo-usuario']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+          Cadastro
+      </a>
+    <li class="nav-item">
+      <a [routerLink]="['/../funcao']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Função
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../contrato']" class="nav-link active">
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
+            Contrato
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../relatorio']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Relatório
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../maquinas']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Maquinas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../detalhesMaquinas']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Lista de Maquinas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../perfil']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Perfil
+      </a>
+    </li>
+</ul>
+  <div class='container-fluid'>
+    <div class="input-group mt-3 p">
+      <input (keyup)="searchAllField($event)" class="form-control" placeholder="Consultar - NOME">
+        <div class="input-group-append">
+          <span class="input-group-text"><i class="fa fa-search fa-fw"></i></span>
+        </div>
+    </div>
+    <div *ngIf='this.historico.length > 0; else semUsuarios' class='custom-size mat-elevation-z8 '>
+      <table mat-table [dataSource]="historico" matSort>
+        <ng-container matColumnDef="nome">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by nome">NOME</th>
+          <td mat-cell *matCellDef="let element"> {{element.usuario.nome.toUpperCase()}} </td>
+        </ng-container>
+        <ng-container matColumnDef="codigoRe">
+          <th mat-header-cell *matHeaderCellDef>MATRÍCULA</th>
+          <td mat-cell *matCellDef="let element"> {{element.usuario.codigoRe}} </td>
+        </ng-container>
+        <ng-container matColumnDef="equipamento">
+          <th mat-header-cell *matHeaderCellDef>EQUIPAMENTO</th>
+          <td mat-cell *matCellDef="let element"> {{element.usuario.equipamento?.descricao}} </td>
+        </ng-container>
+        <ng-container matColumnDef="modelo">
+          <th mat-header-cell *matHeaderCellDef>MODELO</th>
+          <td mat-cell *matCellDef="let element"> {{element.usuario.modelo?.descricao}} </td>
+        </ng-container>
+        <ng-container matColumnDef="memoria">
+          <th mat-header-cell *matHeaderCellDef>MEMÓRIA</th>
+          <td mat-cell *matCellDef="let element"> {{element.usuario.memoria?.descricao}} </td>
+        </ng-container>
+        <ng-container matColumnDef="patrimonio">
+          <th mat-header-cell *matHeaderCellDef>PATRIMÔNIO</th>
+          <td mat-cell *matCellDef="let element"> {{element?.patrimonio}} </td>
+        </ng-container>
+        <ng-container matColumnDef="tag">
+          <th mat-header-cell *matHeaderCellDef>Service Tag/IMEI </th>
+          <td mat-cell *matCellDef="let element"> {{element?.tag}} </td>
+        </ng-container>
+        <ng-container matColumnDef="data_inicio">
+          <th mat-header-cell *matHeaderCellDef> DATA ENTREGA</th>
+          <td mat-cell *matCellDef="let element"> {{element.data_inicio | date : 'dd/MM/yyyy'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="data_final">
+          <th mat-header-cell *matHeaderCellDef> DATA FINAL</th>
+          <td mat-cell *matCellDef="let element"> {{element.data_final | date : 'dd/MM/yyyy'}} </td>
+        </ng-container>
+          <tr mat-header-row *matHeaderRowDef="colunas; sticky: true"></tr>
+          <tr (click)='AtualizarMaquinas(row);' class='custom-row' mat-row *matRowDef="let row; columns: colunas;"></tr>
+      </table>
+    </div>
+    <ng-template #semUsuarios>
+      <div class='text-secondary mt-3 ml-4'>
+        Não há historico
+      </div>
+    </ng-template>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,143 @@
+<div class='principal'>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a [routerLink]="['/../usuarios']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Lista de Usuários
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../novo-usuario']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+          Cadastro
+      </a>
+    <li class="nav-item">
+      <a [routerLink]="['/../funcao']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Função
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../contrato']" class="nav-link active">
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
+            Contrato
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../relatorio']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Relatório
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../maquinas']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Maquinas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../detalhesMaquinas']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Lista de Maquinas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../perfil']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Perfil
+      </a>
+    </li>
+</ul>
+    <form [formGroup]='form'>
+      <div class='container'>  
+          <div id="matricula">
+            <Label class="font-weight-bold">Matrícula</Label>
+            <input 
+            formControlName='codigoRe' 
+            [(ngModel)]="usuario.codigoRe" 
+            type='text' 
+            (change)="mostrarhistoricoOperacao($event)"
+            (blur)="getNome($event)"
+            placeholder="RExxxxxx"
+            maxlength="8"
+            class='form-control' />
+          </div>
+          <div id="nome">
+            <Label class="font-weight-bold">Nome</Label>
+            <input 
+              disabled class='form-control' 
+              value={{usuario?.nome?.toUpperCase()}} 
+              type='text'
+              class='form-control' />
+          </div>
+           <!-- input contrato/operacao -->
+           <div id='contrato'>
+            <label class="font-weight-bold">Operacão</label>
+            <select 
+            formControlName='contrato' 
+            class='form-control' 
+            [(ngModel)]="usuario.contrato">
+            <option [ngValue]="item"
+             class='form-control' 
+             [selected]=" usuario.contrato && usuario.contrato.id==item.id"
+                *ngFor='let item of this.listaContrato'>{{item.operacao}}</option>
+            </select>
+          </div>
+          <div id="cliente">
+            <Label class="font-weight-bold">Cliente</Label>
+            <input 
+              disabled class='form-control' 
+              value={{usuario?.contrato?.cliente}} 
+              type='text'
+              class='form-control' />
+          </div>
+          <div id="demanda">
+            <Label class="font-weight-bold">Demanda</Label>
+            <input 
+              disabled class='form-control' 
+              value={{usuario?.contrato?.demanda}} 
+              type='text'
+              class='form-control' />
+          </div>
+          <div id="centro">
+            <Label class="font-weight-bold">Centro de Custo</Label>
+            <input 
+              disabled class='form-control' 
+              value={{usuario?.contrato?.centro}} 
+              type='text'
+              class='form-control' />
+          </div>
+              <section>
+                <div class="example-button-row">
+                  <button mat-icon-button 
+                    (click)='submit()' 
+                    id="refresh"
+                    class="button1"
+                    color="white">
+                    <mat-icon>check_circle</mat-icon>
+                 INSERIR</button>
+                </div>
+              </section>
+        </div>
+    </form>
+    <!-- <div class="tabelaHistorico" *ngIf="mostrarTabela">
+      <table class="tableok" mat-table [dataSource]=" historico" matSort> 
+        <ng-container style="height: 30px !important;">
+          <ng-container matColumnDef="operacao">
+            <th mat-header-cell *matHeaderCellDef> OPERAÇÃO</th>
+            <td mat-cell *matCellDef="let element"> {{element.operacao.descricao}} </td>
+          </ng-container>
+          <ng-container matColumnDef="data_inicio">
+            <th mat-header-cell *matHeaderCellDef> DATA INICIO</th>
+            <td mat-cell *matCellDef="let element"> {{element.data_inicio | date : 'dd/MM/yyyy'}} </td>
+          </ng-container>
+          <ng-container matColumnDef="data_final">
+            <th mat-header-cell *matHeaderCellDef> DATA FINAL</th>
+            <td mat-cell *matCellDef="let element"> {{element.data_final | date : 'dd/MM/yyyy'}} </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="colunas; sticky: true"></tr>
+          <tr class='custom-row' mat-row *matRowDef="let row; columns: colunas;"></tr>'
+        </ng-container>
+      </table>
+    </div> -->
+</div>

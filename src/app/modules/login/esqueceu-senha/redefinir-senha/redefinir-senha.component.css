@@ -1,0 +1,63 @@
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+}
+
+img{
+    pointer-events: none;
+    height: 8rem;
+}
+
+i{
+    padding-right: 0.5rem;
+    width: 24px;
+   
+}
+
+.login-box{
+    padding-left: 8rem !important;
+    padding-right: 8rem !important;
+    padding-top: 4rem !important;
+    padding-bottom: 6rem !important;
+}
+
+
+.senha input[type = 'password']{
+    border: none;
+    padding-bottom: 0.25rem;;
+    text-transform: uppercase
+} 
+
+
+.senha {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 0.25rem;
+ 
+
+}
+
+img{
+    position: absolute;
+    top: -4rem;
+}
+
+
+
+.juntaLogo{
+    position: relative !important;
+}
+
+.button1 {
+    font-size: 12px;
+    background-color: blue;
+    color: #ffff;
+    margin-top: 2rem;
+    margin-left: -1rem;
+}
+  
+.button2 {
+    font-size: 12px;
+    background-color: rgb(204, 24, 240);
+    color: #ffff;
+    margin-left: 11rem;
+}

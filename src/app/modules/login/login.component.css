@@ -1,0 +1,83 @@
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+}
+
+img{
+    pointer-events: none;
+    height: 8rem;
+}
+
+i{
+    padding-right: 0.5rem;
+    width: 24px;
+   
+}
+
+.login-box{
+    padding-left: 8rem !important;
+    padding-right: 8rem !important;
+    padding-top: 4rem !important;
+    padding-bottom: 6rem !important;
+}
+
+.login input[type = 'text']{
+    border: none;
+    padding-bottom: 0.25rem;;
+    text-transform: uppercase
+} 
+
+.senha input[type = 'password']{
+    border: none;
+    padding-bottom: 0.25rem;;
+    text-transform: uppercase
+} 
+
+.login{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 0.25rem;
+ 
+}
+
+.senha {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 0.25rem;
+ 
+
+}
+
+img{
+    position: absolute;
+    top: -4rem;
+}
+
+.entrar{
+    background: rgb(255,255,255);
+    background-color: rgb(197, 31, 235);
+    outline: none !important;
+    box-shadow: none;
+}
+
+.primeiroAcesso{
+    background: rgb(255,255,255);
+    background-color: blue;
+    outline: none !important;
+    box-shadow: none;
+}
+
+
+.juntaLogo{
+    position: relative !important;
+}
+
+esqeuceSenha{
+    margin-left: 1rem;
+}
+
+a {
+    margin-left: 9rem;
+}
+
+.fa-eye-slash:before {
+    content: "\f070";
+  }

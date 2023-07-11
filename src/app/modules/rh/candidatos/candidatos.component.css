@@ -1,0 +1,59 @@
+*{
+  margin: 8;
+}
+
+.custom-size{
+  height: 26rem;
+  overflow: auto;
+  margin-top: 2rem;
+  border: 1px solid black;
+}
+
+.form-control{
+  border: 1px solid black;
+  width: 15%;
+
+}
+.oi{
+  margin-top: 10rem;
+}
+.input-group-append{
+  border: 1px solid black;
+}
+
+table{
+  width: 100%;
+}
+
+.custom-row{
+  cursor: pointer;
+}
+
+tr.mat-header-row{
+  background-color: rgb(68, 68, 68);
+}
+
+th.mat-header-cell{
+  color: white;
+  font-size: 0.8rem;
+}
+
+.button9 {
+margin-top: 1rem;
+background-color: rgb(204, 24, 240);
+color: black;
+margin-left: 70rem;
+width: 8rem;
+padding: 1px 10px 3px 2px;
+border-radius: 2rem;
+color: #ffff;
+}
+
+.scrollit {
+overflow:auto;
+}
+
+.status_candidato {
+margin-left: 5rem;
+}
+

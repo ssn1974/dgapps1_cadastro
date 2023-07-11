@@ -1,0 +1,135 @@
+*{
+  margin: 8;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 848px;
+  min-width: 848px;
+  padding: 0;
+}
+
+.container div {
+  padding: 10px;
+  
+}
+
+.form-control {
+  width: 230px;
+  border: 1px solid black;
+  text-transform: uppercase;
+} 
+
+section {
+  display: table;
+}
+
+
+.example-button-row {
+  width: 150px;
+  margin-left: 200px;
+
+}
+.button1{
+  background-color: rgb(204, 24, 240);
+  color: black;
+  margin-left: 17rem;
+  width: 13rem;
+  padding: 1px 15px 3px 2px;
+  border-radius: 3rem;
+  color: #ffff;
+}
+
+.button3 {
+  margin-top: 1rem;
+  background-color: rgb(204, 24, 240);
+  margin-left: -23rem;
+  width: 8rem;
+  padding: 1px 15px 3px 2px;
+  border-radius: 3rem;
+  color: #ffff;
+
+}
+
+.button2{
+  background-color: rgb(204, 24, 240);
+  color: black;
+  margin-left: 17rem;
+  width: 14rem;
+  padding: 1px 15px 3px 2px;
+  border-radius: 3rem;
+  color: #ffff;
+}
+
+.borda{
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 838px;
+  min-width: 838px;
+  padding: 0;
+}
+
+.borda2{
+  border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 838px;
+  min-width: 838px;
+  padding: 0;
+}
+
+.motivo {
+  width: 50rem;
+}
+
+
+.link{
+  margin-left: 7rem;
+}
+
+.label {
+  margin-left: -3rem;
+}
+
+
+
+
+
+
+.tabelaHistorico{
+  width: 121%;
+  margin-left: 4rem;
+  overflow: scroll;
+  margin-right: -15rem;
+}
+
+table{
+  width: 58%;
+  margin-left:5rem;
+  overflow: scroll;
+  border: 1px solid black;
+
+}
+
+
+.tableok {
+    overflow: auto !important;
+}
+
+.custom-row{
+  cursor: pointer;
+}
+
+tr.mat-header-row{
+  background-color: rgb(16, 15, 15);
+}
+
+th.mat-header-cell{
+  color: white;
+  font-size: 0.8rem;
+}

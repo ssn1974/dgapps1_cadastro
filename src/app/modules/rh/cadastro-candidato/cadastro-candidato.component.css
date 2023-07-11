@@ -1,0 +1,105 @@
+
+*{
+  margin: 8;
+
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 848px;
+    min-width: 848px;
+    padding: 0;
+}
+
+.container div {
+  padding: 10px;    
+}
+
+
+.form-control {
+  width: 250px;
+  border: 1px solid black;
+  text-transform: uppercase;
+} 
+
+.picture__input{
+  margin-top: 2rem;
+  margin-left: -11rem;
+}
+
+.button1 {
+  margin-top: 12rem;
+  background-color: rgb(204, 24, 240);
+  color: black;
+  margin-left: -7rem;
+  width: 8rem;
+  padding: 1px 10px 3px 2px;
+  border-radius: 2rem;
+  color: #ffff;
+
+}
+
+.button2 {
+
+  margin-top: 8rem;
+  background-color: rgb(204, 24, 240);
+  color: black;
+  margin-left: 6rem;
+  width: 8rem;
+  padding: 1px 10px 3px 2px;
+  border-radius: 2rem;
+  color: #ffff;
+
+}
+
+.button3 {
+background-color: rgb(204, 24, 240);
+width: 8rem;
+border-radius: 2rem;
+color: #ffff;
+margin-left: 6rem;
+
+}
+.borda{
+border: 1px solid black;
+display: flex;
+flex-wrap: wrap;
+box-sizing: border-box;
+width: 838px;
+min-width: 838px;
+padding: 0;
+}
+
+.borda2{
+border: 1px solid black;
+display: flex;
+flex-wrap: wrap;
+box-sizing: border-box;
+width: 838px;
+min-width: 838px;
+padding: 0;
+}
+
+
+.motivo{
+width: 50rem;
+}
+
+
+
+.button6 {
+  color: #ffff;
+  border-radius: 2rem;
+  background-color: rgb(204, 24, 240);
+  width: 8rem;
+  margin-left: 1rem;
+}
+
+.invalid {
+  border-color: red;
+}
+
+.status{
+  margin-left: -1rem;
+}

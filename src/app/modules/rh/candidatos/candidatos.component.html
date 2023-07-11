@@ -1,0 +1,94 @@
+<div class='principal'>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a [routerLink]="['/../cadastro-vagas']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Cadastro de Vagas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../vagas']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Vagas 
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../cadastro-candidato']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+        Cadastro Candidatos
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../candidato']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Candidatos
+      </a>
+    </li>
+</ul>
+<!-- ------------------------------------------------------------------ -->
+  <div class='container-fluid'>
+    <form [formGroup]='form'>
+      <div id="status_candidato" >
+        <label class="font-weight-bold">Status</label>
+        <select 
+        id='select-statusCandidato'
+        formControlName='status' 
+        class='form-control' 
+        (blur)="listaUsuariosPorStatus($event)"
+        [(ngModel)]=" candidatos1.status_candidato">
+        <option [value]="item.id"  
+        class='form-control' 
+        [selected]="  candidatos1.status_candidato &&  candidatos1.status_candidato.id==item.id"
+            *ngFor='let item of this.listaStatusCandidato'>{{item.descricao}}</option>
+        </select>
+      </div>
+    </form>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="modal-message"></p>
+      </div>
+    </div>
+    
+    <div class="scrollit">
+      <div *ngIf='this.candidatos.length > 0; else semUsuarios' class='custom-size mat-elevation-z8 '>
+        <table mat-table [dataSource]="candidatos" matSort>
+          <ng-container matColumnDef="candidatos">
+            <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by nome">CANDIDATO</th>
+            <td mat-cell *matCellDef="let element"> {{element.candidatos.toUpperCase()}} </td>
+          </ng-container>
+          <ng-container matColumnDef="cpf">
+            <th mat-header-cell *matHeaderCellDef> CPF</th>
+            <td mat-cell *matCellDef="let element"> {{element.cpf |cpf1 }} </td>
+          </ng-container>
+          <ng-container matColumnDef="rg">
+            <th mat-header-cell *matHeaderCellDef> RG</th>
+            <td mat-cell *matCellDef="let element"> {{element.rg}} </td>
+          </ng-container>
+          <ng-container matColumnDef="telefone">
+            <th mat-header-cell *matHeaderCellDef>TELEFONE</th>
+            <td mat-cell *matCellDef="let element"> {{element.telefone}} </td>
+          </ng-container>
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>E-MAIL</th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+          </ng-container>
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>STATUS</th>
+            <td mat-cell *matCellDef="let element"> {{element.status_candidato?.descricao}} </td>
+          </ng-container>
+          <ng-container matColumnDef="vaga">
+            <th mat-header-cell *matHeaderCellDef>VAGA VINCULADA</th>
+            <td mat-cell *matCellDef="let element"> {{element.vagas?.qualitor}} </td>
+          </ng-container>
+            <tr mat-header-row *matHeaderRowDef="colunas; sticky: true"></tr>
+            <tr (click)='detalhesCandidato(row);' class='custom-row' mat-row *matRowDef="let row; columns: colunas;"></tr>
+        </table>
+      </div>
+        <ng-template #semUsuarios>
+          <div class='text-secondary mt-3 ml-4'>
+            Não há usuários cadastrados
+          </div>
+        </ng-template>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+*{
+  margin: 8;
+  
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 848px;
+   min-width: 848px;
+  padding: 0;
+}
+.container div {
+  padding: 10px;    
+}
+  
+.form-control {
+  width: 250px;
+  border: 1px solid black;
+  text-transform: uppercase;
+} 
+
+.button1 {
+  font-size: 12px;
+  background-color: rgb(204, 24, 240);
+  width: 120px;
+  padding: 1px 15px 3px 2px;
+  border-radius: 50px;
+  margin-left: 320px;
+  color: #ffff;
+}
+  
+.mat-icon  {
+  margin-left: -20px;
+}
+  
+
+table{
+  width: 54%;
+  margin-left: 449px;
+  overflow: scroll;
+  border: 1px solid black;
+
+}
+
+.tabelaHistorico{
+  width: 68%;
+  margin-left: -94px;
+}
+
+.tableok {
+    overflow: auto !important;
+}
+
+.custom-row{
+  cursor: pointer;
+}
+
+tr.mat-header-row{
+  background-color: rgb(16, 15, 15);
+}
+
+th.mat-header-cell{
+  color: white;
+  font-size: 0.8rem;
+}

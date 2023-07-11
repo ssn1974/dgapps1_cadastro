@@ -1,0 +1,255 @@
+<div class='principal'>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a [routerLink]="['/../usuarios']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Lista de Usuários
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../novo-usuario']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+          Cadastro
+      </a>
+    <li class="nav-item">
+      <a [routerLink]="['/../funcao']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Função
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../contrato']" class="nav-link active">
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
+            Contrato
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../relatorio']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Relatório
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../maquinas']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Maquinas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../detalhesMaquinas']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Lista de Maquinas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../perfil']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Perfil
+      </a>
+    </li>
+</ul>
+  <div *ngIf='usuario; else carregando'>
+      <form>
+        <div class='container '>
+           <!-- input matricula -->
+            <div id="matricula" >
+              <Label class="font-weight-bold">Matricula</Label>
+              <input 
+                disabled class='form-control' 
+                value={{usuario?.codigoRe}} 
+                type='text' 
+                class='form-control'
+              />
+            </div>
+            <!-- input cpf -->
+            <div  id="cpf">
+              <Label class="font-weight-bold">CPF</Label>
+              <input 
+                disabled class='form-control' 
+                value={{usuario?.cpf|cpf}} 
+                type='text' 
+                class='form-control'
+               />
+            </div>
+            <!-- input data_nascimento -->
+            <div  id="data_nascimento" >
+              <Label class="font-weight-bold">Data de Nascimento</Label>
+              <input 
+                disabled class='form-control'
+                [value]="usuario?.data_nascimento | date: 'dd/MM/yyyy'" 
+                type='text'
+                class='form-control' 
+              />
+            </div>
+            <!-- input rg -->
+            <div  id="rg">
+              <Label class="font-weight-bold">RG</Label>
+              <input 
+                disabled class='form-control' 
+                value={{usuario?.rg}} 
+                type='text' 
+                class='form-control'
+              />
+            </div>
+            <!-- input data_emissao -->
+            <div  id="data_emissao">
+              <Label class="font-weight-bold">Data Emissão</Label>
+              <input 
+                disabled class='form-control'
+                [value]="usuario?.data_emissao | date: 'dd/MM/yyyy'" 
+                type='text'
+                class='form-control' 
+              />
+            </div>
+            <!-- input orgão emissor -->
+            <div  id="org_emissor">
+              <Label class="font-weight-bold">Órg.Emissor</Label>
+              <input 
+                disabled class='form-control' 
+                value={{usuario?.org_emissor}} 
+                type='text' 
+                class='form-control'
+              />
+            </div>
+              <!-- input nome -->
+              <div >
+                <Label class="font-weight-bold">Nome</Label>
+                <input 
+                  id="nome"
+                  disabled class='form-control' 
+                  value={{usuario?.nome?.toUpperCase()}} 
+                  type='text'
+                  style="width: 730px" 
+                  class='form-control' />
+              </div>
+              <!-- input email -->
+              <div  id="email">
+                <Label class="font-weight-bold">E-mail</Label>
+                <input 
+                  disabled class='form-control' 
+                  value={{usuario?.email}} 
+                  type='text' 
+                  style="width: 730px" 
+                  class='form-control' 
+                />
+              </div>
+           <!-- input celular -->
+                <div  >
+                  <Label class="font-weight-bold">Celular</Label>
+                  <input 
+                    disabled class='form-control' 
+                    value={{usuario?.celular}} 
+                    type='text'
+                    class='form-control' />
+                </div> 
+            <!-- input cep  -->
+            <div >
+              <Label class="font-weight-bold">Cep</Label>
+              <input 
+                disabled class='form-control' 
+                value={{usuario?.cep|cep}} 
+                type='text' 
+                class='form-control' />
+            </div> 
+            <!-- input cidade -->
+            <div >
+              <Label class="font-weight-bold">Cidade</Label>
+              <input 
+                disabled class='form-control' 
+                value={{usuario?.cidade}} 
+                type='text'
+                class='form-control' />
+            </div> 
+            <!-- input uf -->
+            <div >
+              <Label class="font-weight-bold">UF</Label>
+              <input 
+                disabled class='form-control' 
+                value={{usuario?.uf}} 
+                type='text'
+                class='form-control' />
+            </div> 
+            <!-- input endereco -->
+             <div >
+              <Label class="font-weight-bold">Endereço</Label>
+              <input 
+                disabled class='form-control' 
+                value={{usuario?.endereco}} 
+                type='text'
+                class='form-control' />
+            </div> 
+            <!-- input numero_casa -->
+             <div >
+              <Label class="font-weight-bold">Nº</Label>
+              <input 
+                disabled class='form-control' 
+                value={{usuario?.numero}} 
+                type='text'
+                class='form-control' />
+            </div> 
+            <!-- input complemento -->
+            <div >
+              <Label class="font-weight-bold">Complemento</Label>
+              <input 
+                disabled class='form-control' 
+                value={{usuario?.complemento}} 
+                type='text'
+                style="width: 232px" 
+                class='form-control' />
+            </div> 
+            <div  id="data_inicio" >
+              <Label class="font-weight-bold">Data Inicio</Label>
+              <input 
+                disabled class='form-control'
+                [value]="usuario?.data_inicio | date: 'dd/MM/yyyy'" 
+                type='text'
+                class='form-control' 
+              />
+            </div>
+            <div  id="data_final" >
+              <Label class="font-weight-bold">Data Final</Label>
+              <input 
+                disabled class='form-control'
+                [value]="usuario?.data_final | date: 'dd/MM/yyyy'" 
+                type='text'
+                class='form-control' 
+              />
+            </div>
+            <div class="container">
+              <div class="example-button-row">
+                <Label class="font-weight-bold">Status {{usuario?.status}}</Label>
+                <section *ngIf='usuario.status == "Ativo"; else inativo'>
+                    <button mat-raised-button 
+                      class="button1"
+                      (click)='alteraStatus("desativar");' 
+                      color="blue">Inativar Usuário
+                    </button>
+                </section>
+                    <ng-template #inativo>  
+                      <button mat-raised-button 
+                        class="button2"
+                        (click)='alteraStatus("ativar");'
+                        color="blue">Reativar Usuário
+                      </button>
+                    </ng-template>
+              </div> 
+            <section class="editbutton">
+              <div class="example-button-row">
+                <button mat-raised-button 
+                  class="button3"
+                  (click)='editaUsuario()' 
+                  color="blue">
+                  <mat-icon>create</mat-icon>
+                  Editar usuário</button>
+                </div>
+              </section>
+            </div> 
+          </div>
+        </form>
+      </div>
+    <ng-template #carregando>
+      <div class='container-fluid'>
+        <i class="fa fa-refresh fa-spin fa-4x" aria-hidden="true"></i>
+      </div>
+    </ng-template>
+</div>

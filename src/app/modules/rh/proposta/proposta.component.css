@@ -1,0 +1,50 @@
+
+*{
+  margin: 8;
+
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 848px;
+    min-width: 848px;
+    padding: 0;
+}
+
+.container div {
+  padding: 10px;    
+}
+
+
+.form-control {
+  width: 250px;
+  border: 1px solid black;
+  text-transform: uppercase;
+} 
+
+.borda{
+border: 1px solid black;
+display: flex;
+flex-wrap: wrap;
+margin-right: 2rem;
+}
+
+.button1{
+  background-color: rgb(204, 24, 240);
+  margin-left: 29rem;
+  width: 8rem;
+  padding: 1px 15px 3px 2px;
+  border-radius: 3rem;
+  color: #ffff;
+}
+
+.button2{
+  background-color: rgb(204, 24, 240);
+  margin-left: 3rem;
+  width: 8rem;
+  padding: 1px 15px 3px 2px;
+  border-radius: 3rem;
+  color: #ffff;
+  margin-top: 2rem;
+}

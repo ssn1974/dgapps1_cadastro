@@ -1,0 +1,295 @@
+<div class='principal'>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a [routerLink]="['/../usuarios']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Lista de Usuários
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../novo-usuario']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+          Cadastro
+      </a>
+    <li class="nav-item">
+      <a [routerLink]="['/../funcao']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Função
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../contrato']" class="nav-link active">
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
+            Contrato
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../relatorio']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Relatório
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../maquinas']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Maquinas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../detalhesMaquinas']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Lista de Maquinas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../perfil']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Perfil
+      </a>
+    </li>
+</ul>
+  <div *ngIf='historico; else carregando'>
+    <form>
+      <div class='container '>
+         <!-- input matricula -->
+          <div id="matricula" >
+            <Label class="font-weight-bold">Matricula</Label>
+            <input 
+              disabled class='form-control' 
+              value={{historico?.usuario?.codigoRe}} 
+              type='text' 
+              class='form-control'
+            />
+          </div>
+             <!-- input nome -->
+             <div >
+              <Label class="font-weight-bold">Nome</Label>
+              <input 
+                id="nome"
+                disabled class='form-control' 
+                value={{historico?.usuario?.nome?.toUpperCase()}} 
+                type='text'
+                class='form-control' />
+            </div>
+          <!-- input modelo -->
+          <div  id="modelo">
+            <Label class="font-weight-bold">Modelo</Label>
+            <input 
+              disabled class='form-control' 
+              value={{historico?.usuario.modelo?.descricao}} 
+              type='text' 
+              class='form-control'
+             />
+          </div>
+          <!-- input Equipamento -->
+          <div  id="equipamento" >
+            <Label class="font-weight-bold">Equipamento</Label>
+            <input 
+              disabled class='form-control'
+              value={{historico?.usuario.equipamento?.descricao}} 
+              type='text'
+              class='form-control' 
+            />
+          </div>
+          <!-- input memoria -->
+          <div  id="memoria">
+            <Label class="font-weight-bold">Memória</Label>
+            <input 
+              disabled class='form-control' 
+              value={{historico?.usuario.memoria?.descricao}} 
+              type='text' 
+              class='form-control'
+            />
+          </div>
+          <!-- input tag -->
+          <div  id="tag">
+            <Label class="font-weight-bold">Tag</Label>
+            <input 
+              disabled class='form-control'
+              [value]="historico?.tag" 
+              type='text'
+              class='form-control' 
+            />
+          </div>
+          <!-- input patrimonio -->
+          <div  id="patrimonio">
+            <Label class="font-weight-bold">Patrimônio</Label>
+            <input 
+              disabled class='form-control' 
+              value={{historico?.patrimonio}} 
+              type='text' 
+              class='form-control'
+            />
+          </div>
+               <!-- input data-entrega -->
+               <div  id="data_entrega">
+                <Label class="font-weight-bold">Data de Entrega</Label>
+                <input 
+                  disabled class='form-control' 
+                  [value]="historico?.data_inicio | date: 'dd/MM/yyyy'" 
+                  format
+                  type='text' 
+                  class='form-control' 
+                />
+              </div>
+               <!-- input data-final -->
+                <div  id="data_final" *ngIf="mostrarDevo">
+                  <Label class="font-weight-bold">Data de Devolução</Label>
+                  <input 
+                    disabled class='form-control' 
+                    [value]="historico?.data_final | date: 'dd/MM/yyyy'" 
+                    format
+                    type='text' 
+                    class='form-control' 
+                  />
+                </div>
+            <section>
+              <div class="example-button-row" >
+
+                <button mat-raised-button
+                (click)='volta()' 
+                class="button2"
+                color="white"
+                printTitle="volta">
+                <mat-icon>keyboard_backspace</mat-icon>
+                Voltar</button>
+
+
+                <button mat-raised-button *ngIf="mostrarEntrega"
+                  (click)='PrintSimplesPDFs()' 
+                  class="button2"
+                  color="white"
+                  printTitle="entrega">
+                  <mat-icon>print</mat-icon>
+                  Termo de Entrega</button>
+            
+                  <button  mat-raised-button  *ngIf="mostrarAtualizar"
+                  (click)='submitAtualizacao()' 
+                  class="button2"
+                  color="white"
+                  printTitle="atualizar">
+                  <mat-icon>check_circle</mat-icon>
+                  Atualizar</button>
+                  
+                <button mat-raised-button  *ngIf="mostrarEditar"
+                  (click)='editaUsuario()' 
+                  class="button3"
+                  color="blue">
+                  <mat-icon>create</mat-icon>
+                  Editar usuário</button>
+            
+                  <button mat-raised-button *ngIf="mostrarDevo"
+                  (click)='PrintSimplesPdfDevo()' 
+                  
+                  class="button2"
+                  color="white"
+                  printTitle="entrega">
+                  <mat-icon>print</mat-icon>
+                  Termo de Devolução</button>
+              </div>
+            </section>
+        </div>
+      </form>
+    </div>
+    <ng-template #carregando>
+      <div class='container-fluid'>
+        <i class="fa fa-refresh fa-spin fa-4x" aria-hidden="true"></i>
+      </div>
+    </ng-template>
+  </div>
+<!--------------ENTREGA----------------------------------------------------------------------------------------------- -->
+<input type="hidden" id="dados-usuario" value="">
+<div class='container-fluid' id="imprimirPDF" style="display: none;">
+    <div id="divTitulo" style="display: none;">
+      <img src="assets/qintesss.jpg" id="imgTitulo"> 
+      <span style="padding-left: 800px;"></span>
+    </div>
+  <div id="divDemandaOperacao" style="width: 100%;" class="divDemandaOperacao">
+  </div>
+  <div class="tabelaHistorico">
+    <p>Como colaborador da Qintess, eu <span id="nome-pdf"></span>, do CPF: <span id="cpf-pdf"></span>, usuário do(s) equipamento(s) abaixo, comprometo-me a:</p>
+    <br>
+    <h4>Dados do Equipamento:</h4>
+    <table class="tableok" border="1">
+      <thead>
+        <tr> 
+          <th>Equipamento</th>
+          <th>Modelo</th>
+          <th>Patrimônio</th>
+          <th>Service Tag/IMEI</th>
+          <th>DATA ENTREGA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{historico.equipamento?.descricao}}</td>
+          <td>{{historico.modelo?.descricao}}</td>
+          <td>{{historico.patrimonio}}</td>
+          <td>{{historico.tag}}</td> 
+          <td>{{historico.data_inicio | date:'dd/MM/yyyy'}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <h1>Responsabilidade</h1>
+    <p>• Manter o equipamento em perfeitas condições de uso e utilizar conforme a Política de Uso Aceitável que conheço e aceito como prática de trabalho.</p>
+    <p>• Em caso de perda, roubo ou furto do ativo comunicar o fato, imediatamente, à área de Infraestrutura Corporativa.</p>
+    <p>• Estou ciente de que o mau uso, perda e/ou não devolução do equipamento, implicará no desconto de valores.</p>
+    <p>• Esse equipamento não pode ser transferido, emprestado, para terceiro, sem o conhecimento do seu Gestor e da Área de Infraestrutura.</p>
+    <p>• Em caso de desligamento, deverá ser devolvido imediatamente após a comunicação do fato.</p>
+    <p>• O colaborador autoriza, no ato da sua rescisão, o desconto referente ao valor de mercado do equipamento não devolvido no prazo acima mencionado.</p>
+    <p>Informo que recebi o equipamento descrito com:</p>
+    <img src="assets/equipamento.png" id="imgTermo">  
+    <P>SÃO PAULO</P>
+    <P>_____________________________________________________</P>
+    <p>NOME DO COLABORADOR: <span id="nome-ass"></span>  </p>
+    <P>CPF: <span id="cpf-ass"></span> </P>
+    <P>RG: <span id="rg-ass"></span> </P>
+  </div>
+</div>
+<!-------------------------DEVOLUCAO-------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+<div class='container-fluid' id="imprimirPDFs" style="display: none;">
+    <div id="divTitulos" style="display: none;">
+      <img src="assets/termo1.png" id="imgTitulos"> 
+      <span style="padding-left: 800px;"></span>
+    </div>
+  <div id="divDemandaOperacaos" style="width: 100%;" class="divDemandaOperacaos">
+  </div>
+  <div class="tabelaHistorico">
+    <p>A área de Infraestrutura Corporativa da Qintess confirma que os equipamentos abaixo foram recebidos e continuam com suas condições de uso adequadas.</p>
+    <h4>Dados do Equipamento:</h4>
+    <h1>Informo que recebi o(s) equipamento(s) descrito(s) abaixo:</h1>
+    <table  border="1" class="tableok"> 
+        <thead>
+          <tr> 
+            <th>Equipamento</th>
+            <th>Modelo</th>
+            <th>Patrimônio</th>
+            <th>Service Tag/IMEI</th>
+            <th>DATA ENTREGA</th>
+            <th>DATA DEVOLUÇAO</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{historico.equipamento?.descricao}}</td>
+            <td>{{historico.modelo?.descricao}}</td>
+            <td>{{historico.patrimonio}}</td>
+            <td>{{historico.tag}}</td>
+            <td>{{historico.data_inicio  | date:'dd/MM/yyyy'}}</td>
+            <td>{{historico.data_final   | date:'dd/MM/yyyy'}}</td>
+          </tr>
+        </tbody>
+    </table>
+    <img src="assets/equipamento1.png" id="imgTermo"> 
+    <P>SÃO PAULO</P>
+    <br>
+    <P>_____________________________</P>
+    <p>Responsável pelo recebimento:</p>                  
+    <P>Nome: <span id="nome-dev"></span></P>
+    <P>CPF: <span id="cpf-dev"></span></P>
+    <P>_____________________________</P>
+    <p>Responsável pela coleta:</p>                  
+    <P>Nome: <span id="nome-dev"></span></P>
+    <P>CPF: <span id="cpf-dev"></span></P>
+  </div>
+</div>

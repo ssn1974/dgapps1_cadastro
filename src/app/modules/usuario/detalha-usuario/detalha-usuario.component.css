@@ -1,0 +1,63 @@
+*{
+    margin: 8;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 848px;
+    min-width: 848px;
+    padding: 0;
+}
+
+.container div {
+    padding: 10px;
+    
+}
+
+.form-control {
+    width: 230px;
+    border: 1px solid black;
+    text-transform: uppercase;
+} 
+
+.button2{
+    
+    background-color: red;
+    border-radius: 50px;
+    color: #ffff;
+    width: 150px;
+    
+}
+.button1{
+ 
+    background-color: green;
+    border-radius: 50px;
+    color: #ffff;
+    width: 150px;
+}
+
+
+section {
+    display: table;
+}
+
+
+.example-button-row {
+    width: 150px;
+    margin-left: 200px;
+
+}
+
+.button3 {
+
+    margin-top: 30px;
+    background-color: rgb(204, 24, 240);
+    color: black;
+    margin-left: -190px;
+    width: 150px;
+    padding: 1px 15px 3px 2px;
+    border-radius: 50px;
+    color: #ffff;   
+}

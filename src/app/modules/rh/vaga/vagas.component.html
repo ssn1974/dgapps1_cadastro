@@ -1,0 +1,107 @@
+<div class='principal'>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a [routerLink]="['/../cadastro-vagas']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Cadastro de Vagas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../vagas']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Vagas 
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../cadastro-candidato']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+        Cadastro Candidatos
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../candidato']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Candidatos
+      </a>
+    </li>
+</ul>
+  <div class='container-fluid'>
+    <form [formGroup]='form'>
+      <div id="etapa" >
+        <label class="font-weight-bold">ETAPA</label>
+        <select 
+        id='select-etapa'
+        formControlName='etapa' 
+        class='form-control' 
+        (blur)="listaVagasPorEtapa($event)"
+        [(ngModel)]=" vagas.etapa">
+        <option [value]="item.id"  
+        class='form-control' 
+        [selected]=" vagas.etapa &&  vagas.etapa.id==item.id"
+            *ngFor='let item of this.listaEtapaVagas'>{{item.descricao}}</option>
+        </select>
+      </div>
+    </form>
+    <div *ngIf='this.rh.length > 0; else semUsuarios' class='custom-size mat-elevation-z8 '>
+      <table mat-table [dataSource]="rh" matSort>
+        <ng-container matColumnDef="qualitor">
+          <th mat-header-cell *matHeaderCellDef >NR QUALITOR</th>
+          <td mat-cell *matCellDef="let element"> {{element.qualitor}} </td>
+        </ng-container>
+        <ng-container matColumnDef="candidato">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by nome">CANDIDATO</th>
+          <td mat-cell *matCellDef="let element"> {{element.candidato.toUpperCase()}} </td>
+        </ng-container>
+        <ng-container matColumnDef="cargo">
+          <th mat-header-cell *matHeaderCellDef> CARGO</th>
+          <td mat-cell *matCellDef="let element"> {{element.cargo.descricao}} </td>
+         </ng-container>
+         <ng-container matColumnDef="especialidade">
+          <th mat-header-cell *matHeaderCellDef> ESPECIALIDADE</th>
+          <td mat-cell *matCellDef="let element"> {{element.especialidade.descricao}} </td>
+         </ng-container>
+        <ng-container matColumnDef="remuneracao">
+          <th mat-header-cell *matHeaderCellDef> BUDGET BASE</th>
+          <td mat-cell *matCellDef="let element"> {{element.remuneracao}} </td>
+         </ng-container>
+         <ng-container matColumnDef="etapa">
+          <th mat-header-cell *matHeaderCellDef> ETAPA </th>
+          <td mat-cell *matCellDef="let element"> {{element.etapa.descricao}} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>STATUS</th>
+          <td mat-cell *matCellDef="let element"> {{element.status.descricao}} </td>
+        </ng-container>
+        <ng-container matColumnDef="data_inicio">
+          <th mat-header-cell *matHeaderCellDef>DATA INICIO</th>
+          <td mat-cell *matCellDef="let element"> {{element.data_inicio | date: 'dd/MM/yyyy'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="data_final">
+          <th mat-header-cell *matHeaderCellDef>DATA FINAL</th>
+          <td mat-cell *matCellDef="let element"> {{element.data_final | date: 'dd/MM/yyyy'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="recrutador">
+          <th mat-header-cell *matHeaderCellDef>RECRUTADOR</th>
+          <td mat-cell *matCellDef="let element"> {{element.recrutador.descricao}} </td>
+        </ng-container>
+        <ng-container  matColumnDef="acoes">
+            <th mat-header-cell *matHeaderCellDef></th>
+                 <td mat-cell *matCellDef="let element">
+                     <button mat-raised-button 
+                      class="icon" 
+                      (click)="cancelarStatus(element)" 
+                      color="warn">
+                      <mat-icon>clear</mat-icon>
+                     </button>
+                 </td>
+        </ng-container>
+          <tr mat-header-row *matHeaderRowDef="colunas; sticky: true"></tr>
+          <tr (click)='detalhesCandidato(row);' class='custom-row' mat-row *matRowDef="let row; columns: colunas;"></tr>
+      </table>
+    </div>
+      <ng-template #semUsuarios>
+        <div class='text-secondary mt-3 ml-4'>
+          Não há usuários cadastrados
+        </div>
+      </ng-template>
+</div>

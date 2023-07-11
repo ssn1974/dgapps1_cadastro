@@ -1,0 +1,45 @@
+<div class='wrapper d-flex justify-content-center align-items-center flex-column'>
+  <div class='juntaLogo'>
+    <div class='d-flex justify-content-center test'>
+      <img [src]="logoQintess" />
+    </div>
+    <div class='mat-elevation-z8 recuperar-box'>
+      <div class='d-flex justify-content-center mb-3'>
+        <h3 class='text-secondary'>Recuperar Senha</h3>
+      </div>
+
+     <div>
+      <p>	
+        Insira sua matrícula para enviarmos um link para seu email cadastrado</p>
+     </div>
+      <form [formGroup]='formRecuperar'>
+        <label class="font-weight-bold">Matrícula:</label>
+        <input 
+          id="codigoRe"
+          type='codigoRe' 
+          class="codigoRe" 
+          style="width: 320px"
+          placeholder="RExxxxxx" 
+          autofocus="1"
+          formControlName="codigoRe"
+        >
+      </form>
+      <section>
+        <div class="example-button-row">
+          <button mat-raised-button 
+            (click)='volta()' 
+            class="button1"
+            color="white">
+            Voltar</button>
+          <button 
+            mat-raised-button
+            type="reset" 
+            class="button2"
+            color="black"
+            (click)="recuperarSenha()">
+            Enviar</button>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

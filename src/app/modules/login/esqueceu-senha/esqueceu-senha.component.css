@@ -1,0 +1,55 @@
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+}
+
+img{
+    pointer-events: none;
+    height: 8rem;
+}
+
+i{
+    padding-right: 0.5rem;
+    width: 24px;
+}
+
+.recuperar-box{
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+}
+
+
+img{
+    position: absolute;
+    top: -4rem;
+}
+
+
+.juntaLogo{
+    position: relative !important;
+}
+
+.button1 {
+    font-size: 12px;
+    background-color: blue;
+    color: #ffff;
+    margin-top: 2rem;
+    margin-left: 5rem;
+}
+  
+.button2 {
+    font-size: 12px;
+    background-color: rgb(204, 24, 240);
+    color: #ffff;
+    margin-left: 13rem;
+}
+
+
+.codigoRe{
+    margin-left: 1rem;
+    padding: 0.25rem;
+    text-transform: uppercase;
+}
+

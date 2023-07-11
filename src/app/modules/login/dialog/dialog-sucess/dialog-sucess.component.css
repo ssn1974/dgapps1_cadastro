@@ -1,0 +1,24 @@
+.dialog-container {
+    max-width: 350px; /* Largura máxima do dialog */
+    padding: 20px; /* Espaçamento interno */
+  }
+  
+  .mat-dialog-title {
+    font-size: 1.25rem; /* Tamanho da fonte do título */
+    font-weight: bold; /* Peso da fonte do título */
+    margin-bottom: -16px; /* Espaçamento inferior do título */
+  }
+  
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px; /* Espaçamento superior do botão */
+  }
+  
+  .mat-button {
+    background-color: blue;
+    color: white;
+    margin-left: 17rem;
+
+  }
+  

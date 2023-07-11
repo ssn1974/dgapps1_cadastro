@@ -1,0 +1,95 @@
+
+*{
+  margin: 8;
+
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 848px;
+    min-width: 848px;
+    padding: 0;
+}
+.container div {
+  padding: 10px;    
+}
+
+
+.form-control {
+  width: 250px;
+  border: 1px solid black;
+  text-transform: uppercase;
+} 
+
+
+.tabelaHistorico{
+  width: 79%;
+  margin-left: 18rem;
+  overflow: scroll;
+
+}
+
+table{
+  width: 58%;
+  margin-left:5rem;
+  overflow: scroll;
+  border: 1px solid black;
+
+}
+
+
+.tableok {
+    overflow: auto !important;
+}
+
+.custom-row{
+  cursor: pointer;
+}
+
+tr.mat-header-row{
+  background-color: rgb(16, 15, 15);
+}
+
+th.mat-header-cell{
+  color: white;
+  font-size: 0.8rem;
+}
+  
+.button1 {
+  margin-top: 8rem;
+  background-color: rgb(204, 24, 240);
+  color: black;
+  margin-left: 4rem;
+  width: 8rem;
+  padding: 1px 10px 3px 2px;
+  border-radius: 2rem;
+  color: #ffff;
+
+}
+
+.button2 {
+  margin-top: 2rem;
+  background-color: rgb(204, 24, 240);
+  color: black;
+  margin-left: 3rem;
+  width: 8rem;
+  padding: 1px 10px 3px 2px;
+  border-radius: 2rem;
+  color: #ffff;
+}
+
+.button3 {
+  background-color: rgb(204, 24, 240);
+  color: black;
+  width: 8rem;
+  border-radius: 2rem;
+  color: #ffff;
+  margin-left: 15rem;
+
+}
+
+.mat-icon  {
+  margin-left: -20px;
+  
+}

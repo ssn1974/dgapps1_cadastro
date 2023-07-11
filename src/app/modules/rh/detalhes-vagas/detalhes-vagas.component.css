@@ -1,0 +1,123 @@
+*{
+  margin: 8;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 848px;
+  min-width: 848px;
+  padding: 0;
+}
+
+.container div {
+  padding: 10px;
+  
+}
+
+.form-control {
+  width: 230px;
+  border: 1px solid black;
+  text-transform: uppercase;
+} 
+
+section {
+  display: table;
+}
+
+.example-button-row {
+  width: 150px;
+  margin-left: 200px;
+
+}
+
+.button4{
+margin-top: 1rem;
+background-color: rgb(204, 24, 240);
+color: black;
+width: 12rem;
+padding: 1px 15px 3px 2px;
+border-radius: 3rem;
+color: #ffff;
+margin-left: 12rem;
+}
+
+.button3 {
+  margin-top: 1rem;
+  background-color: rgb(204, 24, 240);
+  color: black;
+  margin-left: -32rem;
+  width: 7rem;
+  padding: 1px 15px 3px 2px;
+  border-radius: 3rem;
+  color: #ffff;
+}
+
+.button2{
+  margin-top: 6rem;
+  background-color: rgb(204, 24, 240);
+  color: black;
+  margin-left: 37rem;
+  width: 10rem;
+  padding: 1px 15px 3px 2px;
+  border-radius: 3rem;
+  color: #ffff; 
+}
+
+.button1{
+  background-color: rgb(204, 24, 240);
+  color: black;
+  margin-left: 1rem;
+  width: 13rem;
+  padding: 1px 15px 3px 2px;
+  border-radius: 3rem;
+  color: #ffff;
+}
+
+table{
+  width: 46rem;
+  margin-left: 10rem;
+  overflow: scroll;
+  border: 1px solid black;
+
+}
+
+.ok{
+  display: flex;
+  margin-left: 4rem;
+}
+
+.Vinculado{
+  margin-left: 14rem;
+
+}
+.rh1{
+  margin-left: 21rem;
+  margin-top: 1rem;
+}
+
+.rh {
+    overflow: auto !important;
+}
+
+.custom-row{
+  cursor: pointer;
+}
+
+tr.mat-header-row{
+  background-color: rgb(87, 85, 85);
+}
+
+th.mat-header-cell{
+  color: white;
+  font-size: 0.8rem;
+}
+
+.ml-4, .mx-4 {
+  margin-left: 14.5rem !important;
+}
+
+.mat-raised-button.mat-warn {
+  margin: -2rem;
+}

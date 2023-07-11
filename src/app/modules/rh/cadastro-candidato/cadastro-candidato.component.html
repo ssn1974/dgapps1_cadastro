@@ -1,0 +1,362 @@
+<div class='principal'>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a [routerLink]="['/../cadastro-vagas']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Cadastro de Vagas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../vagas']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Vagas 
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../cadastro-candidato']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Cadastro Candidatos
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../candidato']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Candidatos
+      </a>
+    </li>
+</ul>
+<!-- ------------------------------------------------------------------------------------ -->
+<form [formGroup]='form' enctype="multipart/form-data">
+  <div class='container'>  
+        <div id="cpf">
+          <Label class="font-weight-bold">CPF</Label>
+          <input 
+          mask="000.000.000-00" 
+          [showMaskTyped]="true" 
+          formControlName='cpf' 
+          [(ngModel)]='candidato.cpf'
+          type='text' 
+          class='form-control' />
+        </div>
+        <div id="rg" >
+          <Label class="font-weight-bold">RG</Label>
+          <input 
+          formControlName='rg' 
+          [(ngModel)]='candidato.rg'
+          type='text' 
+          maxlength="7"
+          class='form-control' />
+        </div>
+        <div id="telefone">
+          <Label class="font-weight-bold">TELEFONE</Label>
+          <input 
+          id="telefone"
+          mask="(00) 00000-0000" 
+          [showMaskTyped]="true" 
+          [dropSpecialCharacters]="false" 
+          formControlName='telefone'
+          [(ngModel)]='candidato.telefone' 
+          type='text' 
+          style="width: 18rem"
+          class='form-control input-cd' />
+      </div> 
+        <div >
+          <Label class="font-weight-bold">CANDIDATO</Label>
+          <input id="candidatos"
+            formControlName='nome'
+            [(ngModel)]='candidato.candidatos' 
+            type='candidatos' 
+            style="width: 52rem"
+            class='form-control'
+             />
+        </div>
+     <!-- input email -->
+      <div id="email">
+          <Label class="font-weight-bold">E-MAIL</Label>
+          <input 
+          formControlName='email'
+          [(ngModel)]='candidato.email' 
+          type='email' 
+          class='form-control'
+          style="width: 52rem" />
+      </div> 
+      
+<!-- -------------------------------------------------------------------------------- -->
+<div>
+  <legend >ATUAL</legend> 
+  <fieldset  class="borda">
+        <div>
+            <Label class="font-weight-bold">REMUNERAÇÃO </Label>
+            <input id="remuneracao_atual"
+              formControlName='remuneracao_atual'
+              [(ngModel)]="candidato.remuneracao_atual"
+              maxlength="10"
+              type='remuneracao_atual' 
+              class='form-control'
+              />
+          </div>
+          <div >
+            <Label class="font-weight-bold">VALE ALIMENTAÇÃO </Label>
+            <input id="va_atual"
+              formControlName='va_atual'
+              [(ngModel)]='candidato.vale_alimentacao_atual' 
+              type='va_atual' 
+              maxlength="10"
+              class='form-control'
+              />
+          </div>
+          <div>
+            <Label class="font-weight-bold">VALE REFEIÇÃO</Label>
+            <input  id="vr_atual"
+              formControlName='vr_atual'
+              [(ngModel)]='candidato.vale_refeicao_atual' 
+              type='vr_atual' 
+              maxlength="8"
+              class='form-control'
+              />
+          </div>
+          <div >
+            <Label class="font-weight-bold">BÔNUS </Label>
+            <input id="bonus_atual"
+              formControlName='bonus_atual'
+              [(ngModel)]='candidato.bonus_atual' 
+              type='bonus_atual' 
+              maxlength="10"
+              class='form-control'
+              />
+          </div>
+          <div >
+            <Label class="font-weight-bold">FLASH</Label>
+            <input id="flash_atual"
+              formControlName='flash_atual'
+              [(ngModel)]='candidato.flash_atual' 
+              type='flash_atual'
+              maxlength="10" 
+              class='form-control'
+              />
+          </div>
+          <div>
+            <Label class="font-weight-bold">CESTA </Label>
+            <input  id="cesta_atual"
+              formControlName='cesta_atual'
+              [(ngModel)]='candidato.cesta_atual' 
+              type='cesta_atual' 
+              maxlength="10"
+              class='form-control'
+              />
+          </div>
+          <div id="planoSaude" >
+            <label class="font-weight-bold">PLANO DE SAÚDE</label>
+            <select 
+            id='select-planoSaude'
+            formControlName='planoSaude' 
+            class='form-control' 
+            [(ngModel)]="candidato.planoSaude">
+            <option [ngValue]="item"  
+            id="{{item.id}}"
+            class='form-control' 
+            [selected]=" candidato.planoSaude && candidato.planoSaude.id==item.id"
+                *ngFor='let item of this.listaPlano'>{{item.descricao}}</option>
+            </select>
+          </div>
+      </fieldset>
+</div>
+<!-- ---------------------------------------------------------------------------------------->
+  <div>
+    <legend >PRETENSÃO</legend> 
+    <fieldset  class="borda2">
+        <div >
+          <Label class="font-weight-bold">REMUNERAÇÃO </Label>
+          <input id="remuneracao_pretensao"
+            formControlName='remuneracao_pretensao'
+            [(ngModel)]="candidato.remuneracao_pretensao"
+            maxlength="10"
+            type='remuneracao_pretensao' 
+            class='form-control'
+             />
+        </div>
+        <div >
+          <Label class="font-weight-bold">VALE ALIMENTAÇÃO </Label>
+          <input id="va_pretensao"
+            formControlName='va_pretensao'
+            [(ngModel)]='candidato.vale_alimentacao_pretensao' 
+            type='va_pretensao' 
+            maxlength="10"
+            class='form-control'
+             />
+        </div>
+        <div>
+          <Label class="font-weight-bold">VALE REFEIÇÃO </Label>
+          <input  id="vr_pretensao"
+            formControlName='vr_pretensao'
+            [(ngModel)]='candidato.vale_refeicao_pretensao' 
+            type='vr_pretensao' 
+            maxlength="8"
+            class='form-control'
+             />
+        </div>
+        <div >
+          <Label class="font-weight-bold">BÔNUS </Label>
+          <input id="bonus_pretensao"
+            formControlName='bonus_pretensao'
+            [(ngModel)]='candidato.bonus_pretensao' 
+            type='bonus_pretensao' 
+            maxlength="10"
+            class='form-control'
+             />
+        </div>
+        <div >
+          <Label class="font-weight-bold">FLASH </Label>
+          <input id="flash_pretensao"
+            formControlName='flash_pretensao'
+            [(ngModel)]='candidato.flash_pretensao' 
+            type='flash_pretensao'
+            maxlength="10" 
+            class='form-control'
+             />
+        </div>
+        <div>
+          <Label class="font-weight-bold">CESTA</Label>
+          <input  id="cesta_pretensao"
+            formControlName='cesta_pretensao'
+            [(ngModel)]='candidato.cesta_pretensao' 
+            type='cesta_pretensao' 
+            maxlength="10"
+            class='form-control'
+             />
+        </div>
+        <div id="planoPretensao" >
+          <label class="font-weight-bold">PLANO DE SAÚDE</label>
+          <select 
+          id='select-planoPretensao'
+          formControlName='planoPretensao' 
+          class='form-control' 
+          [(ngModel)]="candidato.planoPretensao">
+          <option [ngValue]="item"  
+          id="{{item.id}}"
+          class='form-control' 
+          [selected]=" candidato.planoPretensao && candidato.planoPretensao.id==item.id"
+              *ngFor='let item of this.listaPlanoSaudePretensao'>{{item.descricao}}</option>
+          </select>
+        </div>
+      </fieldset>
+      <div class="" id="status_candidato"  *ngIf="mostrarStatus">
+        <label class="font-weight-bold">Status</label>
+        <select 
+        id='select-statusCandidato'
+        (blur)="observacao($event)"
+        formControlName='status_candidato' 
+        class='form-control' 
+        [(ngModel)]="candidato.status_candidato">
+        <option [ngValue]="item"  
+        id="{{item.id}}"
+        [selected]=" candidato.status_candidato && candidato.status_candidato.id==item.id"
+            *ngFor='let item of this.listaStatusCandidato'>{{item.descricao}}</option>
+        </select>
+      </div>
+    </div>
+<!-- ----------------------------------------------------------------------------------- -->
+  <Div *ngIf="mostrarObservacao" >
+    <Label class="font-weight-bold">OBSERVAÇÃO</Label>
+    <div  class="borda2" >
+        <textarea
+          class="motivo"
+          formControlName="observacao"
+          rows="4" 
+          [(ngModel)]='candidato.observacao' 
+          cols="50"></textarea>
+    </div>
+  </Div>
+<!-- ----------------------------------------------------------------------------------- -->
+<div  *ngIf="mostrarInserir">
+  <Label class="font-weight-bold">Inclusão do Currículo</Label>
+  <div class="upload">
+    <label> 
+      <input class="upload" type="file" (change)="onFileSelected($event)">
+      <button class="button6" (click)="onUpload()">Upload</button>
+      <div *ngIf="message">{{ message }}</div>
+    </label>
+  </div>
+</div>
+  <div id="anexo" *ngIf="mostrarAtualizar" >
+    <label class="font-weight-bold">Link do Curriculo:</label>
+    <a class="link" href="{{candidato?.curriculo?.link}}" 
+    target="_blank" id="download-link">
+      {{candidato?.curriculo?.link}}
+    </a>
+  </div>
+    <div>
+      <section>
+        <div class="">
+          <button mat-icon-button *ngIf="mostrarInserir"
+              (click)='submit()' 
+              class="button1"
+              color="white">
+              <mat-icon>check_circle</mat-icon>
+              INSERIR
+            </button>
+          <button  mat-icon-button 
+            (click)='volta()' 
+            class="button2"
+            color="white">
+            <mat-icon>keyboard_backspace</mat-icon>
+            Voltar
+        </button>
+        <button  mat-raised-button  *ngIf="mostrarAtualizar"
+          (click)='submit()' 
+          class="button3"
+          color="white"
+          printTitle="atualizar">
+          <mat-icon>check_circle</mat-icon>
+          Atualizar</button>
+        </div>
+      </section>
+    </div>
+    </div>
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

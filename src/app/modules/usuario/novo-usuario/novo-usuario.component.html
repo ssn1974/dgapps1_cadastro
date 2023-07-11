@@ -1,0 +1,252 @@
+<div class='principal'>
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a [routerLink]="['/../usuarios']" class="nav-link active">
+        <i class="fa fa-users" aria-hidden="true"></i>
+          Lista de Usuários
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../novo-usuario']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+          Cadastro
+      </a>
+    <li class="nav-item">
+      <a [routerLink]="['/../funcao']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Função
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../contrato']" class="nav-link active">
+          <i class="fa fa-user-plus" aria-hidden="true"></i>
+            Contrato
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../relatorio']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Relatório
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../maquinas']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Maquinas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../detalhesMaquinas']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Lista de Maquinas
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['/../perfil']" class="nav-link active">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+        Perfil
+      </a>
+    </li>
+</ul>
+  <form [formGroup]='form'>
+    <div class='container'>  
+        <div  id="codigoRe">
+          <Label class="font-weight-bold">Matrícula</Label>  
+          <input 
+            formControlName='codigoRe' 
+            class="form-control"
+            [(ngModel)]="usuario.codigoRe"
+            maxlength="8"
+            placeholder="RExxxxxx"
+            type="text">
+        </div>
+      <!-- input CPF -->
+        <div id="cpf">
+          <Label class="font-weight-bold">CPF</Label>
+          <input 
+          mask="000.000.000-00" 
+          [showMaskTyped]="true" 
+          formControlName='cpf' 
+          [(ngModel)]='usuario.cpf'
+          type='text' 
+          class='form-control' />
+        </div>
+      <!-- input Data-nascimento -->
+        <div id="data_nascimento">
+          <Label class="font-weight-bold">Data de Nascimento</Label>
+          <input 
+          formControlName='data_nascimento' 
+          [(ngModel)]='usuario.data_nascimento' 
+          type='date'
+          class='form-control' />
+        </div>
+      <!-- input RG -->
+        <div id="rg" >
+          <Label class="font-weight-bold">RG</Label>
+          <input 
+          formControlName='rg' 
+          [(ngModel)]='usuario.rg'
+          type='text' 
+          maxlength="7"
+          class='form-control' />
+        </div>
+      <!-- input Data_emissor -->
+        <div id="data_emissao">
+          <Label class="font-weight-bold">Data Emissão</Label>
+          <input 
+          formControlName='data_emissao' 
+          [(ngModel)]='usuario.data_emissao' 
+          type='date' 
+          class='form-control'
+          />
+        </div>
+      <!-- input orgao_emissor -->
+        <div id="org_emissor">
+          <Label class="font-weight-bold">Órg.Emissor</Label>
+          <input 
+          formControlName='org_emissor' 
+          [(ngModel)]="usuario.org_emissor" 
+          type='text' 
+          class='form-control' />
+        </div>
+    </div>
+    <div class="container-full">
+      <div  id="nome" >
+        <Label class="font-weight-bold">Nome</Label>  
+        <input 
+          formControlName='nome' 
+          class="form-control"
+          style="width: 790px" 
+          [(ngModel)]="usuario.nome "
+          type="text">
+      </div>
+           <!-- input email -->
+         <div id="email">
+          <Label class="font-weight-bold">E-mail Corporativo</Label>
+          <input 
+            formControlName='email'
+            [(ngModel)]='usuario.email' 
+            type='email' 
+            class='form-control'
+            style="width: 790px" />
+        </div> 
+    </div>
+    <div class='container '>  
+      <!-- input celular -->
+         <div id="celular">
+          <Label class="font-weight-bold">Celular</Label>
+          <input 
+            id="celular"
+            mask="(00) 00000-0000" 
+            [showMaskTyped]="true" 
+            [dropSpecialCharacters]="false" 
+            formControlName='celular'
+            [(ngModel)]='usuario.celular' 
+            type='text' 
+            class='form-control input-cd' />
+        </div> 
+        <!-- input cep -->
+         <div>
+          <Label class="font-weight-bold">CEP</Label>
+          <input 
+          id="cep"
+          mask="00.000-000" 
+          [showMaskTyped]="true"
+          formControlName='cep' 
+          [(ngModel)]='usuario.cep'
+          (blur)="getCEP($event)"
+          type='text' 
+          class='form-control' />
+        </div> 
+        <!-- input cidade -->
+        <div>
+          <Label class="font-weight-bold">Cidade</Label>
+          <input 
+            type="text"
+            id="cidade"
+            class='form-control'
+            formControlName='cidade' 
+            [(ngModel)]='usuario.cidade'
+          />
+        </div> 
+        <!-- input uf -->
+        <div>
+          <Label class="font-weight-bold">UF</Label>
+          <input 
+            id="uf"
+            formControlName='uf' 
+            type="text"
+            class='form-control'
+            [(ngModel)]='usuario.uf'
+        />
+      </div> 
+        <!-- input endereco -->
+          <div>
+            <Label class="font-weight-bold">Endereço</Label>
+            <input 
+              id="endereco"
+              formControlName='endereco' 
+              type='text' 
+              class='form-control' 
+              [(ngModel)]='usuario.endereco'
+              />
+          </div> 
+        <!-- input numero_casa -->
+            <div >
+              <Label class="font-weight-bold">Nº</Label>
+                <input 
+                  id="numero"
+                  formControlName='numero' 
+                  type='text' 
+                  class='form-control' 
+                  [(ngModel)]='usuario.numero'
+                />
+            </div> 
+          <!-- input complemento -->
+           <div>
+            <Label class="font-weight-bold">Complemento</Label>
+            <input 
+              id="complemento"
+              formControlName='complemento' 
+              type='text' 
+              class='form-control' 
+              style="width: 250px" 
+              [(ngModel)]='usuario.complemento'
+              />
+          </div>   
+          <div id="data_inicio">
+            <Label class="font-weight-bold">Data Inicio</Label>
+            <input 
+            formControlName='data_inicio' 
+            [(ngModel)]='usuario.data_inicio' 
+            type='date'
+            class='form-control' />
+          </div>
+          <div id="data_final" *ngIf="mostrarDatafinal">
+            <Label class="font-weight-bold">Data Final</Label>
+            <input 
+            formControlName='data_final' 
+            [(ngModel)]='usuario.data_final' 
+            type='date'
+            class='form-control' />
+          </div>
+          <section>
+            <div class="example-button-row">
+              <button mat-raised-button 
+                (click)='submit()' 
+                class="button1"
+                color="white">
+                <mat-icon>check_circle</mat-icon>
+                CADASTRAR</button>
+              <button 
+                mat-raised-button
+                type="reset" 
+                class="button2"
+                color="black">
+                <mat-icon>clear</mat-icon>
+                CANCELAR</button>
+            </div>
+          </section>
+    </div>
+  </form>
+</div>

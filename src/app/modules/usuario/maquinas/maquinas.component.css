@@ -1,0 +1,138 @@
+*{
+    margin: 8;
+  
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 848px;
+    min-width: 848px;
+    padding: 0;
+}
+
+.container div {
+    padding: 10px;    
+}
+  
+  
+.form-control {
+    width: 250px;
+    border: 1px solid black;
+    text-transform: uppercase;
+} 
+  
+.tabelaHistorico {
+    margin-left: 40px;
+    max-height: 450px;
+    overflow: auto;
+    margin-bottom: 30px;
+    
+}
+
+
+  
+table {
+    width: 58%;
+    margin-left:auto;
+    margin-right: 300px;
+    overflow: scroll;
+    border: 1px solid black;
+  
+}
+
+.tableOk {
+    overflow: auto !important;
+}
+
+.tableok {
+      overflow: auto !important;
+}
+  
+.custom-row{
+    cursor: pointer;
+}
+  
+tr.mat-header-row{
+    background-color: rgb(16, 15, 15);
+}
+  
+th.mat-header-cell{
+    color: white;
+    font-size: 0.8rem;
+}
+  
+.example-button-row {
+    margin-left: 9rem
+}
+table{
+    width: 54rem;
+    margin-left: 24rem;
+    overflow: scroll;
+    border: 1px solid black;
+  
+}
+
+.tabelaHistorico{
+    width: 115rem;
+    margin-left: -10rem;
+    overflow: scroll;
+
+}
+  
+.tableok {
+      overflow: auto !important;
+}  
+
+.tableok tr td {
+    border-right-width: 5px;
+    border-left-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-style: solid;
+    border-color: #212020;
+    
+}
+
+#tabelaDevolucao {
+     
+    width: 100% !important;
+
+}
+  .custom-row{
+    cursor: pointer;
+  }
+  
+  tr.mat-header-row{
+    background-color: rgb(16, 15, 15);
+  }
+  
+  th.mat-header-cell{
+    color: white;
+    font-size: 0.8rem;
+  }
+
+  .button1 {
+    font-size: 14px;
+    background-color: rgb(204, 24, 240);
+    width: 8rem;
+    padding: 1px 15px 3px 2px;
+    border-radius: 5rem;
+    margin-left: 4rem;
+    color: #ffff;
+}
+  
+.button2 {
+    font-size: 14px;
+    background-color: rgb(204, 24, 240);
+    width: 8rem;
+    padding: 1px 15px 3px 2px;
+    border-radius: 5rem;
+    margin-left: 4rem;
+    color: #ffff;
+}
+
+.coleta {
+  margin-left: 100px;
+}

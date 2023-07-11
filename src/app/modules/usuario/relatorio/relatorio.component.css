@@ -1,0 +1,54 @@
+*{
+  margin: 8;
+
+}
+.custom-size{
+  height: 26rem;
+  overflow: auto;
+  margin-top: 2rem;
+  border: 1px solid black;
+}
+
+.buton1 {
+  font-size: 12px;
+  background-color: rgb(204, 24, 240);
+  width: 7rem;
+  padding: 1px 15px 3px 2px;
+  border-radius: 5rem;
+  margin-left: 72rem;
+  color: #ffff;
+  display: block;
+  border: 1 solid rgb(204, 24, 240);
+}
+
+.form-control{
+  width: 250px;
+  border: 1px solid black;
+  text-transform: uppercase;
+
+}
+
+.input-group-append{
+  border: 1px solid black;
+}
+
+table{
+  width: 100%;
+  height: 100px;
+}
+
+.custom-row{
+  cursor: pointer;
+}
+
+tr.mat-header-row{
+  background-color: black;
+  
+}
+
+th.mat-header-cell{
+  color: white;
+  font-size: 0.8rem;
+}
+
+

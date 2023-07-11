@@ -1,0 +1,74 @@
+*{
+    margin: 8;
+  
+  }
+  .container {
+      display: flex;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+      width: 848px;
+      min-width: 848px;
+      padding: 0;
+  }
+  .container div {
+    padding: 10px;    
+  }
+  
+  
+  .form-control {
+    width: 250px;
+    border: 1px solid black;
+    text-transform: uppercase;
+  } 
+  
+  
+  .tabelaHistorico{
+    width: 79%;
+    margin-left: 18rem;
+    overflow: scroll;
+  
+  }
+  
+  table{
+    width: 58%;
+    margin-left:5rem;
+    overflow: scroll;
+    border: 1px solid black;
+  
+  }
+  
+  
+  .tableok {
+      overflow: auto !important;
+  }
+  
+  .custom-row{
+    cursor: pointer;
+  }
+  
+  tr.mat-header-row{
+    background-color: rgb(16, 15, 15);
+  }
+  
+  th.mat-header-cell{
+    color: white;
+    font-size: 0.8rem;
+  }
+    
+  .button1 {
+    font-size: 14px;
+    background-color: rgb(204, 24, 240);
+    width: 8rem;
+    padding: 1px 15px 3px 2px;
+    border-radius: 5rem;
+    margin-left: 19rem;
+    color: #ffff;
+    margin-top: 1rem;
+}
+  
+  
+  .mat-icon  {
+    margin-left: -20px;
+    
+  }
+  

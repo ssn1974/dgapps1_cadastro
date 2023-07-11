@@ -1,0 +1,163 @@
+<div class='principal'>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a [routerLink]="['/../cadastro-vagas']" class="nav-link active">
+          <i class="fa fa-users" aria-hidden="true"></i>
+            Cadastro de Vagas
+        </a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/../vagas']" class="nav-link active">
+          <i class="fa fa-users" aria-hidden="true"></i>
+            Vagas 
+        </a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/../cadastro-candidato']" class="nav-link active">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          Cadastro Candidatos
+        </a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/../candidato']" class="nav-link active">
+          <i class="fa fa-users" aria-hidden="true"></i>
+            Candidatos
+        </a>
+      </li>
+      <li class="nav-item">
+  </ul>
+<!-- ------------------------------------------------------------------------- -->
+<form [formGroup]="form" enctype="multipart/form-data">
+  <div class="container">
+     <div>
+        <Label class="font-weight-bold">Nr Qualitor</Label>
+        <input 
+          disabled class='form-control' 
+          value={{candidato?.vagas?.qualitor}} 
+          maxlength="5"
+          type='text' 
+          class='form-control' />
+      </div>
+        <div id="cargo">
+          <Label class="font-weight-bold">Cargo</Label>
+          <input 
+            id="cargo"
+            disabled class='form-control' 
+            value={{candidato?.vagas?.cargo?.descricao}} 
+            type='text'
+            class='form-control' />
+        </div>
+        <div id="data_inicio">
+          <Label class="font-weight-bold">Data inicio</Label>
+          <input 
+            disabled class='form-control' 
+            [value]="candidato?.vagas?.data_inicio | date: 'dd/MM/yyyy'" 
+            type='text'
+            class='form-control' />
+        </div>
+        <div id="remuneracaoVagas">
+          <Label class="font-weight-bold">Remuneração</Label>
+          <input 
+            disabled class='form-control' 
+            [value]="candidato?.vagas?.remuneracao" 
+            type='text'
+            class='form-control' />
+        </div>
+        <div id="flashVagas">
+          <Label class="font-weight-bold">Flash</Label>
+          <input 
+            disabled class='form-control' 
+            [value]="candidato?.vagas?.flash" 
+            type='text'
+            class='form-control' />
+        </div>
+        <div >
+          <label class="font-weight-bold">Status</label>
+          <select 
+          id="select-statusRemuneracao" 
+          formControlName='status_candidato' 
+          class='form-control' 
+          [(ngModel)]="proposta.status_candidatos">
+          <option [ngValue]="item"  
+          id="{{item.id}}"
+          [selected]=" proposta.status_candidatos && proposta.status_candidatos.id==item.id"
+              *ngFor='let item of this.listaStatusCandidato'>{{item.descricao}}</option>
+          </select>
+        </div>
+        <div >
+          <label class="font-weight-bold">REMUNERAÇÃO </label>
+          <input
+            id="remuneracao"
+            formControlName="remuneracao"
+            [(ngModel)]="proposta.remuneracao"
+            maxlength="10"
+            type="remuneracao_atual"
+            class="form-control"
+          />
+        </div>
+        <div >
+          <label class="font-weight-bold">FLASH</label>
+          <input
+            id="flash"
+            formControlName="flash"
+            [(ngModel)]="proposta.flash"
+            type="flash"
+            maxlength="10"
+            class="form-control"
+          />
+        </div>
+    </div>
+</form>
+<!-- Opção 1 -->
+<div class="container">
+  <div>
+    <legend>BENEFÍCIOS </legend>
+    <fieldset class="borda">
+    <!-- <div > -->
+      <div>
+        <mat-checkbox [(ngModel)]="selectAllOption1" (change)="selectAllOptions1()">Selecionar Todos</mat-checkbox>
+      </div>
+      <div>
+        <label class="font-weight-bold">Vale Alimentação</label>
+        <mat-checkbox [(ngModel)]="proposta.vale_alimentacao" [disabled]="selectAllOption1"></mat-checkbox>
+      </div>
+      <div>
+        <label class="font-weight-bold">Vale Refeição</label>
+        <mat-checkbox  class="borda1" [(ngModel)]="proposta.vale_refeicao" [disabled]="selectAllOption1"></mat-checkbox>
+      </div>
+      <div>
+        <label class="font-weight-bold">Plano Saúde</label>
+        <mat-checkbox [(ngModel)]="proposta.plano_saude" [disabled]="selectAllOption1"></mat-checkbox>
+      </div>
+      <div>
+        <label class="font-weight-bold">Plano Odonto</label>
+        <mat-checkbox [(ngModel)]="proposta.plano_odonto" [disabled]="selectAllOption1"></mat-checkbox>
+      </div>
+      <div>
+        <label class="font-weight-bold">Seguro de vida</label>
+        <mat-checkbox [(ngModel)]="proposta.seguro_vida" [disabled]="selectAllOption1"></mat-checkbox>
+      </div>
+    <!-- </div> -->
+    </fieldset>
+  </div>
+</div>
+<section>
+  <div>
+          <button  mat-raised-button 
+          (click)='volta()' 
+          class="button1"
+          color="white"
+          printTitle="voltar">
+          <mat-icon>keyboard_backspace</mat-icon>
+          Voltar
+        </button>
+        <button  mat-raised-button 
+        (click)='vincularProposta()' 
+        class="button2"
+        color="white">
+        <mat-icon>create</mat-icon>
+        Vincular 
+      </button>
+    </div>
+  </section>
+
