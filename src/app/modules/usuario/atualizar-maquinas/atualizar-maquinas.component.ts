@@ -4,9 +4,7 @@ import { HistoricoMaquinas } from 'src/app/models/historico/historicoMaquinas/hi
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
 import * as printJS from 'print-js';
 import { Usuario } from 'src/app/models/usuario/usuario.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NotifierService } from 'angular-notifier';
-
+import { FormBuilder, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-atualizar-maquinas',
   templateUrl: './atualizar-maquinas.component.html',
@@ -36,7 +34,6 @@ export class AtualizarMaquinasComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private us: UsuarioService,
-    private notifier: NotifierService,
   ) { }
 
   ngOnInit() {

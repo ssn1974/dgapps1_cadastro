@@ -70,25 +70,20 @@ export class MaquinasComponent implements OnInit {
   }
 
 
-
-
   desabilitarDatafinal(){
     if(this.historicoMaquinas.data_inicio == undefined){
       this.mostrarInserir= true;
+      this.mostrarAtualizar = false;
     }else{
       this.mostrarAtualizar= true;
       this.aparecer = false;
     }
   }
 
-
-  
   
   volta(){
     this.router.navigate(['detalhesMaquinas/']);
   }
-
-
 
     mostrarhistoricoMaquinas() {
       this.mostrarAtualizar= false;
@@ -96,6 +91,7 @@ export class MaquinasComponent implements OnInit {
     if(this.usuario.codigoRe == undefined){
       this.historico = [];
       this.mostrarInserir =  true;
+      this.mostrarAtualizar = false;
     }else{
       this.usuarioService.getListaHistoricoMaquinasRe(this.usuario.codigoRe).subscribe(
         data => {
@@ -186,10 +182,9 @@ export class MaquinasComponent implements OnInit {
     }
   }
 
-
   submitAtualizacao() {
     if (this.form.invalid) {
-      this.notifier.notify("error", " Todos os campos devem ser preenchidos corretamente!");
+      this.notifier.notify("error", " Todos os campos devem ser preenchidos corretamente !");
     } else {
       this.atualizaMaquinas();
     }
@@ -198,16 +193,15 @@ export class MaquinasComponent implements OnInit {
   private insereMaquinas() {
     this.usuarioService.insereMaquinas(this.historicoMaquinas, this.usuario).subscribe((data) => {
       if (data.status == 200) {
-        this.notifier.notify("success", "Dados inseridos com sucesso");
+        this.notifier.notify("success", "Dados inseridos com sucesso !");
         this.router.navigate(['detalhesMaquinas/']);
       }
       else {
-        this.notifier.notify("error", "Houve um erro no cadastro a Maquinas");
+        this.notifier.notify("error", "Houve um erro no cadastro da Maquina");
       }
     }, 
     );
   }
-
 
   private atualizaMaquinas(){
     this.usuarioService.atualizarMaquinas(this.historicoMaquinas, this.usuario).subscribe((data) => {
@@ -217,12 +211,11 @@ export class MaquinasComponent implements OnInit {
         this.router.navigate(['detalhesMaquinas/'+ this.id]);
       }
       else {
-        this.notifier.notify("error", "Houve um erro no atualiza a Maquinas");
+        this.notifier.notify("error", "Houve um erro no atualiza da Maquina");
       }
     }, 
     );
   }
-
   
 private carregaUsuarios() {
   this.id = this.route.snapshot.paramMap.get('id');

@@ -47,13 +47,13 @@
       </a>
     </li>
 </ul>
-  <div class='container-fluid'>
-    <div class="input-group mt-3 p">
-      <input (keyup)="searchAllField($event)" class="form-control" placeholder="Consultar - NOME">
-        <div class="input-group-append">
-          <span class="input-group-text"><i class="fa fa-search fa-fw"></i></span>
-        </div>
-    </div>
+<div class='container-fluid'>
+  <div class="input-group mt-3 p">
+    <input (keyup)="searchAllField($event)" class="form-control" placeholder="Consultar - NOME">
+      <div class="input-group-append">
+        <span class="input-group-text"><i class="fa fa-search fa-fw"></i></span>
+      </div>
+  </div>
     <div *ngIf='this.historico.length > 0; else semUsuarios' class='custom-size mat-elevation-z8 '>
       <table mat-table [dataSource]="historico" matSort>
         <ng-container matColumnDef="nome">

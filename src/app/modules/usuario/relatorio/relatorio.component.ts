@@ -33,13 +33,24 @@ export class RelatorioComponent implements OnInit {
     this.mostrarGerarPDF = false;
   }
 
-  listaUsuariosPorOperacao(event: any){
+  listaUsuariosPorOperacao(event: any) {
     this.mostrarGerarPDF = true;
     this.us.getListaUsuariosPorOperacao(event.target.value).subscribe(
       data => {
-      this.usuarios = data;
-    })
+        if (Array.isArray(data) && data.length > 0) {
+          this.usuarios = data; // Se houver dados, popula o array 'usuarios'
+        } else {
+          this.usuarios = []; // Se não houver dados, define 'usuarios' como um array vazio
+        }
+      },
+      error => {
+        console.error(error);
+        this.usuarios = []; // Em caso de erro ou nenhum dado retornado, define 'usuarios' como um array vazio
+        this.mostrarGerarPDF = false;
+      }
+    );
   }
+  
 
   PrintSimplesPDF(){
     let titulo = document.getElementById('divTitulo');

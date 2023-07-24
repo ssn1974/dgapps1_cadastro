@@ -42,7 +42,7 @@ export class DetalhesMaquinasComponent implements OnInit {
   searchAllField(event: any) {
     const searchTerm = event.target.value.toUpperCase();
     if (searchTerm === '') {
-      this.historico = this.historicoOriginal; // Atribui o histórico original de volta à variável 'historico'
+      this.historico = this.historicoOriginal; 
       return;
     }
     this.historico = this.historicoOriginal.filter(obj => {
