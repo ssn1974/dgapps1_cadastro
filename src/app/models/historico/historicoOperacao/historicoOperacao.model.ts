@@ -8,14 +8,12 @@ export class HistoricoOperacao implements HistoricoOperacaoInterface {
     data_final?: Date;
     vigente?: string;
     usuario?: Usuario
-    contrato?: Contrato;
-  
+   
     constructor(
       id?: number,
       data_final?: Date,
       data_inicio?: Date,
       vigente?: string,
       usuario?: Usuario,
-      contrato?: Contrato,
     ) { }
   }

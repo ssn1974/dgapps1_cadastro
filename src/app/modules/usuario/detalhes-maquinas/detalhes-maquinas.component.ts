@@ -42,10 +42,11 @@ export class DetalhesMaquinasComponent implements OnInit {
   searchAllField(event: any) {
     const searchTerm = event.target.value.toUpperCase();
     if (searchTerm === '') {
-      this.historico = this.historicoOriginal; 
+      this.historico = this.historicoOriginal; // Atribui o histórico original de volta à variável 'historico'
       return;
     }
-    this.historico = this.historicoOriginal.filter(obj => {
+  
+    this.historico = this.historicoOriginal.filter((obj) => {
       return Object.keys(obj).find((key) => {
         return obj[key] ? ((obj[key].descricao ? obj[key].descricao : obj[key]).toString().toUpperCase()).includes(searchTerm) : false;
       });
