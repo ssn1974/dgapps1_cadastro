@@ -39,6 +39,10 @@ export class DetalhaUsuarioComponent implements OnInit {
   }
 
   alteraStatus(acao: any) {
+    if (!this.usuario.data_final) {
+      this.nt.notify("error", "A data final precisa ser preenchida antes de alterar o status.");
+      return;
+    }
     let param = {
       id: this.usuario.id,
       acao: acao

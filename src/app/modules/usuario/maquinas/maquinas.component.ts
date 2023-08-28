@@ -61,12 +61,12 @@ export class MaquinasComponent implements OnInit {
     this.getMemoria();
     this.getEquipamento();
     this.getModelo();
+    this.mostrarhistoricoMaquinas();
+    this.mostrarInserir= true;
+    this.aparecer = true;
     setTimeout(()=>{
       this.preencheCampos();
     }, 1300);
-    // this.mostrarInserir= true;
-    this.mostrarAtualizar= true;
-    this.aparecer = true;
   }
 
 
@@ -92,12 +92,14 @@ export class MaquinasComponent implements OnInit {
       this.historico = [];
       this.mostrarInserir =  true;
       this.mostrarAtualizar = false;
+      this.mostrarTabela= false;
     }else{
       this.usuarioService.getListaHistoricoMaquinasRe(this.usuario.codigoRe).subscribe(
         data => {
         this.historico = data;
         this.mostrarAtualizar = true;
-        this.mostrarInserir = true;
+        this.mostrarInserir = false;
+        this.mostrarTabela= true;
       });
     }
   } 
@@ -224,6 +226,8 @@ private carregaUsuarios() {
       (usuario) => {
         this.historicoMaquinas = usuario;
         this.usuario = this.historicoMaquinas.usuario;
+        this.mostrarInserir= false;
+        this.mostrarAtualizar= true;
       }
     );
   }

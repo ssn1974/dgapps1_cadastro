@@ -49,7 +49,7 @@
 </ul>
 <div class='container-fluid'>
   <div class="input-group mt-3 p">
-    <input (keyup)="searchAllField($event)" class="form-control" placeholder="Consultar - NOME">
+    <input (keyup)="searchAllField($event)" class="form-control" placeholder="Consultar - PATRIMÔNIO">
   </div>
     <div *ngIf='this.historico.length > 0; else semUsuarios' class='custom-size mat-elevation-z8 '>
       <table mat-table [dataSource]="historico" matSort>
